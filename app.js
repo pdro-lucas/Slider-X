@@ -3,7 +3,7 @@ const dotenv = require("dotenv").config();
 const express = require("express");
 const morgan = require("morgan");
 const path = require("path");
-const routes = require("./src/routes");
+const routes = require("./lib/routes");
 const session = require("express-session");
 
 const app = express();

@@ -1,0 +1,51 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.bg-dark-transparent {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Carousel styling */
+#introCarousel,
+.carousel-inner,
+.carousel-item,
+.carousel-item.active {
+  height: 100vh;
+}
+
+.carousel-caption {
+  opacity: 0;
+  /* transform: translateY(-50%);
+  bottom: initial;
+  top: 50%; */
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  padding-bottom: 0.25rem;
+  padding-left: 2.25rem;
+  transition: 500ms ease-in-out;
+}
+
+.carousel-caption:hover {
+  transition: 500ms ease-in-out;
+  opacity: 1;
+}
+
+.carousel-title {
+  font-family: "Cinzel", serif;
+  font-size: 2rem;
+}
+
+/* Height for devices larger than 576px */
+@media (min-width: 992px) {
+  #introCarousel {
+    margin-top: -58.59px;
+  }
+}

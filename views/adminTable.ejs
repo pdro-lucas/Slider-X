@@ -39,6 +39,14 @@
               >
                 Edit
               </a>
+              <form
+                action="/api/delete/<%= result.id %>"
+                name="delete-button"
+                style="display: inline-block"
+                onsubmit="handleDelete(event)"
+              >
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
             </td>
           </tr>
           <% }); %>
@@ -49,7 +57,15 @@
 
     <%- include('partials/bootstrapjs') %>
     <script>
-      // get input id value and
+      // get form action and send delete
+      const formUrl = document.forms.namedItem("delete-button").action;
+
+      function handleDelete(event) {
+        event.preventDefault();
+        const xhr = new XMLHttpRequest();
+        xhr.open("DELETE", formUrl);
+        xhr.send();
+      }
     </script>
   </body>
 </html>

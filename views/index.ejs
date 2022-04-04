@@ -1,39 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <%- include('partials/head') %>
-  <%- title %>
-</head>
-<body>
-  <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-pause="false" data-bs-interval="8000">
-    <div class="carousel-inner">
-      <div class="carousel-item active" style="
-        background-image: url('https://wallpapercave.com/wp/wp4676576.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;"
-      >
-        <div class="carousel-caption d-none d-md-block text-start bg-dark-transparent">
-            <h1 class="mb-2 carousel-title ">SliderX</h1>
+  <head>
+    <%- include('partials/head') %> <%- title %>
+  </head>
+  <body>
+    <div
+      id="carouselExampleControls"
+      class="carousel slide carousel-fade"
+      data-bs-ride="carousel"
+      data-bs-pause="false"
+      data-bs-interval="8000"
+    >
+      <div class="carousel-inner">
+        <div
+          class="carousel-item active"
+          style="
+            background-image: url('https://wallpapercave.com/wp/wp4676576.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+          "
+        >
+          <div
+            class="carousel-caption d-none d-md-block text-start bg-dark-transparent-blur"
+          >
+            <h1 class="mb-2 carousel-title">SliderX</h1>
             <p class="mt-3">Project created by Pedro - Masterix Sistemas</p>
           </div>
-      </div>
-      <% results.forEach(function(result) { %>
-        <div class="carousel-item" style="
-          background-image: url('/images/<%- result.image_name %>');
-          background-size: cover;
-          background-repeat: no-repeat;
-          background-position: center center;"
+        </div>
+        <% results.forEach(function(result) { %>
+        <div
+          class="carousel-item"
+          style="
+            background-image: url('/images/<%- result.image_name %>');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+          "
         >
-          <div class="carousel-caption d-none d-md-block text-start bg-dark-transparent">
-            <h1 class="mb-2 carousel-title "><%= result.title %></h1>
+          <div
+            class="carousel-caption d-none d-md-block text-start bg-dark-transparent-blur"
+          >
+            <h1 class="mb-2 carousel-title"><%= result.title %></h1>
             <p class="mt-3"><%= result.description %></p>
           </div>
         </div>
-      <% }); %>
+        <% }); %>
+      </div>
     </div>
-  </div>
 
-  <%- include('partials/bootstrapjs') %>
-</body>
+    <%- include('partials/bootstrapjs') %>
+  </body>
 </html>

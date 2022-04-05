@@ -1,5 +1,6 @@
-# SliderX Project
+<h1 align='center'>SliderX</h1>
 
-### To-do
-
-- [x] enviar arquivos para o diretório do servidor
+SliderX é um projeto desenvolvido para a minha empresa.
+A sua principal funcionalidade é criar uma apresentaçãode slides de imagens,
+também conhecido como 'carousel', onde o usuário pode criar, atualizar, deletar e ver novos slides.
+Resumindo, sliderx é um CRUD de imagens.

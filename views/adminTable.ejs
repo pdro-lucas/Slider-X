@@ -3,145 +3,17 @@
   <head>
     <%- include('partials/head') %> <%- title %>
   </head>
-  <body>
-    <div
-      class="d-flex flex-column flex-shrink-0 p-3 vh-100 fixed-top sidebar"
-      style="width: 280px"
-    >
-      <a
-        href="/"
-        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
-      >
-        <svg class="bi me-2" width="40" height="32">
-          <use xlink:href="#bootstrap"></use>
-        </svg>
-        <span class="fs-4">Sidebar</span>
-      </a>
-      <hr />
-      <ul class="nav nav-pills flex-column mb-auto">
-        <li class="nav-item">
-          <a href="#" class="nav-link active" aria-current="page">
-            <svg class="bi me-2" width="16" height="16">
-              <use xlink:href="#home"></use>
-            </svg>
-            Home
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-link link-dark">
-            <svg class="bi me-2" width="16" height="16">
-              <use xlink:href="#speedometer2"></use>
-            </svg>
-            Dashboard
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-link link-dark">
-            <svg class="bi me-2" width="16" height="16">
-              <use xlink:href="#table"></use>
-            </svg>
-            Orders
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-link link-dark">
-            <svg class="bi me-2" width="16" height="16">
-              <use xlink:href="#grid"></use>
-            </svg>
-            Products
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-link link-dark">
-            <svg class="bi me-2" width="16" height="16">
-              <use xlink:href="#people-circle"></use>
-            </svg>
-            Customers
-          </a>
-        </li>
-      </ul>
-      <hr />
-      <div class="dropdown">
-        <a
-          href="#"
-          class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
-          id="dropdownUser2"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <img
-            src="https://github.com/mdo.png"
-            alt=""
-            class="rounded-circle me-2"
-            width="32"
-            height="32"
-          />
-          <strong>mdo</strong>
-        </a>
-        <ul
-          class="dropdown-menu text-small shadow"
-          aria-labelledby="dropdownUser2"
-        >
-          <li><a class="dropdown-item" href="#">New project...</a></li>
-          <li><a class="dropdown-item" href="#">Settings</a></li>
-          <li><a class="dropdown-item" href="#">Profile</a></li>
-          <li><hr class="dropdown-divider" /></li>
-          <li><a class="dropdown-item" href="#">Sign out</a></li>
-        </ul>
+  <body id="body-pd">
+    <%- include('components/Navbar') %> <%- include('components/Sidebar') %>
+    <main class="container">
+      <h1 class="fw-normal mt-3">Images</h1>
+      <div class="d-flex align-items-center table-responsive">
+        <%- include('components/Table'), {results} %>
       </div>
-    </div>
-    <div class="container d-flex align-items-center vh-100 table-responsive">
-      <table class="table table-striped table-bordered table-hover">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Title</th>
-            <th scope="col">Tag</th>
-            <th scope="col">Active</th>
-            <th scope="col">Upload Date</th>
-            <th scope="col">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% results.forEach(function(result) { %>
-          <tr>
-            <th scope="row"><%= result.id %></th>
-            <td><%= result.title %></td>
-            <td><%= result.tag %></td>
-            <td><%= result.active %></td>
-            <td><%= result.date %></td>
-            <td colspan="2">
-              <a
-                href="/api/image/<%= result.id %>"
-                class="btn btn-success"
-                role="button"
-              >
-                View
-              </a>
-              <a
-                href="/api/image/<%= result.id %>/edit"
-                class="btn btn-primary"
-                role="button"
-              >
-                Edit
-              </a>
-              <form
-                action="/api/delete/<%= result.id %>"
-                name="delete-button"
-                style="display: inline-block"
-                onsubmit="handleDelete(event)"
-              >
-                <button type="submit" class="btn btn-danger">Delete</button>
-              </form>
-            </td>
-          </tr>
-          <% }); %>
-        </tbody>
-      </table>
-    </div>
-    <!-- End table -->
+    </main>
 
     <%- include('partials/bootstrapjs') %>
+    <script src="/js/adminPage.js"></script>
     <script>
       // get form action and send delete
       const formUrl = document.forms.namedItem("delete-button").action;

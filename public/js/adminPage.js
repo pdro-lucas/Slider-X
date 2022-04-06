@@ -1,6 +1,5 @@
-console.log("loaded JS adminPage.js");
-// Init on page load
-document.addEventListener("DOMContentLoaded", function (event) {
+// Execute on page load
+document.addEventListener("DOMContentLoaded", function () {
   const showNavbar = (toggleId, navId, bodyId, headerId) => {
     const toggle = document.getElementById(toggleId);
     const nav = document.getElementById(navId);
@@ -22,11 +21,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
   };
 
-  // Init navbar toggle action
+  // Execute navbar actions
   showNavbar("header-toggle", "nav-bar", "body-pd", "header");
 
-  // Set link to active
   const linkColor = document.querySelectorAll(".nav_link");
+
+  // Set the first link to active
+  linkColor[0].classList.add("active");
+
+  // When the user clicks on the link, set to active class
+  linkColor.forEach((l) => l.addEventListener("click", colorLink));
 
   function colorLink() {
     if (linkColor) {
@@ -34,5 +38,4 @@ document.addEventListener("DOMContentLoaded", function (event) {
       this.classList.add("active");
     }
   }
-  linkColor.forEach((l) => l.addEventListener("click", colorLink));
 });

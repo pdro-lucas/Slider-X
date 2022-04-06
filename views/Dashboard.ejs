@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include('partials/head') %> <%- title %>
+    <%- include('partials/head') %> 
+    <link href="/css/main.css" rel="stylesheet" />
+    <%- title %>
   </head>
   <body id="body-pd">
-    <%- include('components/Navbar') %> <%- include('components/Sidebar') %>
+    <%- include('components/Header') %> <%- include('components/Navbar/Navbar')
+    %>
     <main class="container">
-      <h1 class="fw-normal mt-3">Images</h1>
+      <h1 class="fw-normal mt-3">Images table</h1>
       <div class="d-flex align-items-center table-responsive">
-        <%- include('components/Table'), {results} %>
+        <%- include('components/Table/Table'), {results} %>
       </div>
     </main>
 

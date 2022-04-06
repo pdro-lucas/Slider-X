@@ -8,17 +8,18 @@
   align-items: center;
 
   width: 100%;
-  height: map-get($heights, "xxl");
+  height: 4rem;
   padding: 0 1rem;
 
   background-color: $white;
-  transition: map-get($transition-duration, "normal");
   border-bottom: 1px solid $light-gray;
+
+  transition: 0.5s;
   z-index: 100;
 
   &_toggle {
     color: $dark-gray;
-    font-size: map-get($font-sizes, "xxl");
+    font-size: 1.5rem;
     cursor: pointer;
   }
 
@@ -26,25 +27,26 @@
     display: flex;
     justify-content: center;
 
-    width: map-get($widths, lg);
-    height: map-get($heights, lg);
+    width: 35px;
+    height: 35px;
 
-    border-radius: $border-radius-circle;
+    border-radius: 50%;
     overflow: hidden;
 
     & img {
-      width: calc(map-get($widths, ls) + 0.5rem);
+      width: 40px;
     }
   }
-  @media screen and (min-width: 768px) {
-    .header {
-      height: calc(3rem + 1rem);
-      padding: 0 2rem 0 calc(68px + 2rem);
+}
 
-      &_img {
-        width: 40px;
-        height: 40px;
-      }
+@media screen and (min-width: 768px) {
+  .header {
+    height: calc(3rem + 1rem);
+    padding: 0 2rem 0 calc(68px + 2rem);
+
+    &_img {
+      width: 40px;
+      height: 40px;
 
       & img {
         width: 45px;

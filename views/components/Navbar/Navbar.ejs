@@ -1,0 +1,22 @@
+<aside class="l-navbar" id="nav-bar">
+  <nav class="nav">
+    <div>
+      <a href="#" class="nav_logo">
+        <i class="bx bx-layer nav_logo-icon"></i>
+        <span class="nav_logo-name">SliderX</span>
+      </a>
+      <div class="nav_list">
+        <%- include('NavLink', { navLinkURL: '#', navLinkIcon: 'bx-grid-alt', navLinkName: 'Dashboard' }) %>
+        <%- include('NavLink', { navLinkURL: '#', navLinkIcon: 'bx-user', navLinkName: 'Users' }) %>
+        <%- include('NavLink', { navLinkURL: '#', navLinkIcon: 'bx-message-square-detail', navLinkName: 'Messages' }) %>
+        <%- include('NavLink', { navLinkURL: '#', navLinkIcon: 'bx-bookmark', navLinkName: 'Bookmark' }) %>
+        <%- include('NavLink', { navLinkURL: '#', navLinkIcon: 'bx-folder', navLinkName: 'Files' }) %>
+        <%- include('NavLink', { navLinkURL: '#', navLinkIcon: 'bx-bar-chart-alt-2', navLinkName: 'Stats' }) %>
+      </div>
+    </div>
+    <a href="#" class="nav_link">
+      <i class="bx bx-log-out nav_icon"></i>
+      <span class="nav_name">SignOut</span>
+    </a>
+  </nav>
+</aside>

@@ -1,0 +1,33 @@
+.show {
+  left: 0%;
+}
+
+.body-pd {
+  padding-left: 68px;
+}
+
+.active {
+  color: $primary-color;
+  background-color: $light-blue;
+}
+
+.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+
+  width: 4px;
+  height: 100%;
+
+  background-color: $primary-color;
+}
+
+@media screen and (min-width: 768px) {
+  .show {
+    width: calc(68px + 156px);
+  }
+
+  .body-pd {
+    padding-left: calc(68px + 188px);
+  }
+}

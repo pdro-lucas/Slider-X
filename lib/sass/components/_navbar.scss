@@ -1,4 +1,4 @@
-.l-navbar {
+.sidebar {
   position: fixed;
   top: 0;
   left: -30%;
@@ -34,8 +34,8 @@
   }
 
   &_logo {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
 
     font-family: $ff-poppins;
 
@@ -49,7 +49,7 @@
       color: $primary-color;
     }
 
-    &-name {
+    &-text {
       font-weight: 700;
 
       color: $primary-color;
@@ -98,17 +98,15 @@
   content: "";
   position: absolute;
   left: 0;
+
   width: 4px;
   height: 100%;
+
   background-color: $primary-color;
 }
 
-.height-100 {
-  height: 100vh;
-}
-
 @media screen and (min-width: 768px) {
-  .l-navbar {
+  .sidebar {
     left: 0;
   }
 

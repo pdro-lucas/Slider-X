@@ -9,6 +9,7 @@
     "prepare": "husky install",
     "commit": "git-cz",
     "dev": "nodemon app.js",
+    "start": "node app.js",
     "node-sass": "node-sass --output-style compressed --source-map true --source-map-contents true --watch lib/sass/ --output public/css/"
   },
   "dependencies": {
@@ -31,6 +32,10 @@
     "husky": "^7.0.4",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.15"
+  },
+  "engines": {
+    "node": "16.x",
+    "yarn": "1.22.x"
   },
   "config": {
     "commitizen": {

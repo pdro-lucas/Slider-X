@@ -1,0 +1,26 @@
+button.btn {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.btn {
+  font-size: 1.1rem;
+  line-height: 0;
+
+  &.btn-edit {
+    padding: 5px;
+
+    color: $primary-color;
+    background: $light-blue;
+    border-radius: 50%;
+  }
+
+  &.btn-delete {
+    padding: 5px;
+
+    color: $dark-red;
+    background: $light-red;
+    border-radius: 50%;
+  }
+}

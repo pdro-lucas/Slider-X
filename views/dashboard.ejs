@@ -6,11 +6,14 @@
     <%- title %>
   </head>
   <body id="body-pd">
-    <%- include('components/Header') %> <%- include('components/Navbar/Navbar')
-    %>
-    <main class="container">
-      <h1 class="fw-normal mt-3">Images table</h1>
-      <div class="d-flex align-items-center table-responsive">
+    <%- include('components/Header') %> <%- include('components/Navbar/Navbar') %>
+
+    <main>
+      <div class="container">
+        <div class="dashboard">
+          <h1 class="dashboard_title">Images</h1>
+          <p class="dashboard_location">Dashboard>Images</p>
+        </div>
         <%- include('components/Table/Table'), {results} %>
       </div>
     </main>

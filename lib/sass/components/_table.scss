@@ -4,8 +4,10 @@ table {
   border-collapse: collapse;
   border-style: hidden;
   border-radius: 10px;
+  border-spacing: 0;
 
   background: $white;
+  overflow: hidden;
 }
 
 thead th {
@@ -16,14 +18,50 @@ thead th {
 
   text-align: left;
   border-bottom: 8px solid $bg-color;
+
+  &:last-child {
+    text-align: center;
+  }
+
+  &:nth-child(3) {
+    text-align: center;
+  }
 }
 
-thead th:last-child {
-  text-align: center;
-}
+tbody {
+  th,
+  td {
+    padding: 30px 0 20px;
 
-th,
-td {
+    font-size: 14px;
+    font-weight: 400;
+
+    text-align: left;
+
+    border-bottom: 1px solid $bg-color;
+  }
+  & th {
+    width: 50px;
+
+    text-align: center;
+  }
+
+  // Select second and third column in tbody td using nth-child
+  & td {
+    &:nth-child(2) {
+      display: block;
+
+      width: 60px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+
+      white-space: nowrap;
+    }
+
+    &:nth-child(3) {
+      text-align: center;
+    }
+  }
 }
 
 .responsive-table {
@@ -35,4 +73,13 @@ td {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+}
+
+@media screen and (min-width: 768px) {
+  tbody td {
+    &:nth-child(2) {
+      display: table-cell;
+      width: 10%;
+    }
+  }
 }

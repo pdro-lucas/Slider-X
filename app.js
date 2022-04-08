@@ -1,7 +1,7 @@
 const cors = require("cors");
 const dotenv = require("dotenv").config();
 const express = require("express");
-// const morgan = require("morgan");
+const morgan = require("morgan");
 const path = require("path");
 const routes = require("./lib/routes");
 const session = require("express-session");
@@ -41,7 +41,7 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-// app.use(morgan("production"));
+app.use(morgan(":remote-user [:date] :method :url :status :response-time ms "));
 
 // Routes
 app.use(routes);

@@ -1,6 +1,4 @@
 table {
-  width: 100%;
-
   margin-top: 5rem;
 
   table-layout: fixed;
@@ -15,31 +13,27 @@ table {
 }
 
 thead th {
-  padding: 20px 0 20px;
+  padding: 15px 0;
 
   font-size: 16px;
   font-weight: 500;
 
   text-align: left;
-  border-bottom: 8px solid $bg-color;
+  border-bottom: 6px solid $bg-color;
 
   &:first-child {
     width: 50px;
   }
 
   &:nth-child(3) {
-    text-align: center;
-  }
-
-  &:last-child {
-    // display: none;
+    padding-left: 20px;
   }
 }
 
 tbody {
   th,
   td {
-    padding: 30px 0 20px;
+    padding: 20px 0;
 
     font-size: 14px;
     font-weight: 400;
@@ -60,15 +54,11 @@ tbody {
     }
 
     &:nth-child(3) {
-      text-align: center;
+      padding-left: 20px;
       text-overflow: ellipsis;
       overflow: hidden;
 
       white-space: nowrap;
-    }
-
-    &:last-child {
-      // display: none;
     }
   }
 }
@@ -85,9 +75,12 @@ tbody {
 }
 
 @media screen and (min-width: 768px) {
+  table {
+    width: 100%;
+  }
+
   thead th {
     &:nth-child(3) {
-      padding-left: 20px;
       text-align: left;
     }
 

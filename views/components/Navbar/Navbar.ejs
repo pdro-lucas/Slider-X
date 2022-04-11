@@ -6,10 +6,9 @@
         <span class="nav_logo-name">SliderX</span>
       </a>
       <div class="nav_list">
-        <%- include('NavLink', { navLinkURL: '#', navLinkIcon: 'bx-grid-alt', navLinkText: 'Dashboard' }) %>
+        <%- include('NavLink', { navLinkURL: '/admin/dashboard', navLinkIcon: 'bx-grid-alt', navLinkText: 'Dashboard' }) %>
+        <%- include('NavLink', { navLinkURL: '/admin/dashboard/upload', navLinkIcon: 'bx-send', navLinkText: 'Upload' }) %>
         <%- include('NavLink', { navLinkURL: '#', navLinkIcon: 'bx-user', navLinkText: 'Users' }) %>
-        <%- include('NavLink', { navLinkURL: '#', navLinkIcon: 'bx-message-square-detail', navLinkText: 'Messages' }) %>
-        <%- include('NavLink', { navLinkURL: '#', navLinkIcon: 'bx-bookmark', navLinkText: 'Bookmark' }) %>
         <%- include('NavLink', { navLinkURL: '#', navLinkIcon: 'bx-folder', navLinkText: 'Files' }) %>
         <%- include('NavLink', { navLinkURL: '#', navLinkIcon: 'bx-bar-chart-alt-2', navLinkText: 'Stats' }) %>
       </div>

@@ -41,12 +41,12 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-app.use(morgan(":remote-user [:date] :method :url :status :response-time ms "));
+app.use(morgan("dev"));
 
 // Routes
 app.use(routes);
 
 // Initialize server
-app.listen(port, "0.0.0.0", () =>
+app.listen(port, "192.168.0.9", () =>
   console.log(`Server is running at: http://localhost:${port}`)
 );

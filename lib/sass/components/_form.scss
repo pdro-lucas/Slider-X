@@ -1,5 +1,11 @@
 .container-flex form {
-  width: 70%;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .container-flex form {
+    width: 80%;
+  }
 }
 
 form {
@@ -7,6 +13,20 @@ form {
   padding: 30px;
 
   border-radius: 8px;
+
+  button {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+    }
+  }
 }
 
 // FORM GROUP
@@ -14,7 +34,7 @@ form {
   margin-bottom: 1rem;
 
   // form-group input
-  & input {
+  & input[type="text"] {
     width: 100%;
     padding: 0.5rem;
     border: 1px solid #ccc;
@@ -24,13 +44,13 @@ form {
       outline: none;
       border-color: $primary-color;
     }
+  }
 
-    // hide file input button
-    &[type="file"] {
-      display: none;
-    }
+  // hide file input button
+  & input[type="file"] {
+    display: none;
 
-    &[type="file"] + label {
+    & + label {
       padding: 0.5rem 1rem;
 
       text-align: center;
@@ -53,18 +73,6 @@ form {
     border: 1px solid #ccc;
     border-radius: 4px;
     resize: none;
-
-    &:focus {
-      outline: none;
-      border-color: $primary-color;
-    }
-  }
-
-  & button {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
 
     &:focus {
       outline: none;

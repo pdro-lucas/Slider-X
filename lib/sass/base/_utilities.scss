@@ -6,6 +6,13 @@
   padding: 0 10px;
 }
 
+.container-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .show {
   left: 0%;
 }
@@ -47,14 +54,14 @@
 
 @media screen and (min-width: 992px) {
   .container {
-    max-width: 1140px;
+    max-width: 1030px;
     padding: 0;
   }
 }
 
 @media screen and (min-width: 1320px) {
   .container {
-    max-width: 1780px;
+    max-width: 1700px;
     padding: 0;
   }
 }

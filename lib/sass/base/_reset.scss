@@ -6,20 +6,31 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   position: relative;
-  transition: 0.5s;
+
+  height: 100%;
+
+  margin: calc(3rem + 1rem) 0 0 0;
+
   font-family: $ff-montserrat;
+
+  transition: 0.5s;
+
+  overflow-x: hidden;
 }
 
 main {
   display: block;
-  margin-top: 68;
+  margin-top: 68px;
 }
 
 @media screen and (min-width: 768px) {
   body {
-    margin: calc(3rem + 1rem) 0 0 0;
     padding-left: 4rem;
   }
 }

@@ -1,0 +1,76 @@
+.container-flex form {
+  width: 70%;
+}
+
+form {
+  background: $white;
+  padding: 30px;
+
+  border-radius: 8px;
+}
+
+// FORM GROUP
+.form-group {
+  margin-bottom: 1rem;
+
+  // form-group input
+  & input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+    }
+
+    // hide file input button
+    &[type="file"] {
+      display: none;
+    }
+
+    &[type="file"] + label {
+      padding: 0.5rem 1rem;
+
+      text-align: center;
+
+      font-weight: 600;
+
+      background-color: $primary-color;
+      color: $white;
+
+      border-radius: 4px;
+
+      cursor: pointer;
+    }
+  }
+
+  // form-group textarea
+  & textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+    }
+  }
+
+  & button {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+    }
+  }
+
+  // customize checkbox
+}

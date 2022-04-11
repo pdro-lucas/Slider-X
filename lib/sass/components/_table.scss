@@ -1,6 +1,10 @@
 table {
   width: 100%;
 
+  margin-top: 5rem;
+
+  table-layout: fixed;
+
   border-collapse: collapse;
   border-style: hidden;
   border-radius: 10px;
@@ -13,18 +17,22 @@ table {
 thead th {
   padding: 20px 0 20px;
 
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
 
   text-align: left;
   border-bottom: 8px solid $bg-color;
 
-  &:last-child {
-    text-align: center;
+  &:first-child {
+    width: 50px;
   }
 
   &:nth-child(3) {
     text-align: center;
+  }
+
+  &:last-child {
+    // display: none;
   }
 }
 
@@ -36,22 +44,15 @@ tbody {
     font-size: 14px;
     font-weight: 400;
 
-    text-align: left;
-
     border-bottom: 1px solid $bg-color;
   }
-  & th {
-    width: 50px;
 
+  & th {
     text-align: center;
   }
 
-  // Select second and third column in tbody td using nth-child
   & td {
     &:nth-child(2) {
-      display: block;
-
-      width: 60px;
       text-overflow: ellipsis;
       overflow: hidden;
 
@@ -60,6 +61,14 @@ tbody {
 
     &:nth-child(3) {
       text-align: center;
+      text-overflow: ellipsis;
+      overflow: hidden;
+
+      white-space: nowrap;
+    }
+
+    &:last-child {
+      // display: none;
     }
   }
 }
@@ -76,10 +85,26 @@ tbody {
 }
 
 @media screen and (min-width: 768px) {
-  tbody td {
-    &:nth-child(2) {
+  thead th {
+    &:nth-child(3) {
+      padding-left: 20px;
+      text-align: left;
+    }
+
+    &:last-child {
       display: table-cell;
-      width: 10%;
+
+      text-align: center;
+    }
+  }
+  tbody td {
+    &:nth-child(3) {
+      padding-left: 20px;
+      text-align: left;
+    }
+
+    &:last-child {
+      display: flex;
     }
   }
 }

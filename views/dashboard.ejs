@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include('partials/head') %> 
+    <%- include('partials/head') %>
     <link href="/css/main.css" rel="stylesheet" />
     <%- title %>
   </head>
   <body id="body-pd">
     <%- include('components/Header') %> <%- include('components/Navbar/Navbar') %>
-    
+
     <main>
       <div class="loader-container">
         <div class="loader"></div>
@@ -22,9 +22,6 @@
     </main>
 
     <%- include('vendors/scripts') %>
-    <script>
-      let table = new DataTable('.c_table')
-    </script>
     <script src="/js/adminPage.js"></script>
   </body>
 </html>

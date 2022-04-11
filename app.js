@@ -47,6 +47,6 @@ app.use(morgan("dev"));
 app.use(routes);
 
 // Initialize server
-app.listen(port, "192.168.0.9", () =>
+app.listen(port, "0.0.0.0", () =>
   console.log(`Server is running at: http://localhost:${port}`)
 );

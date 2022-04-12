@@ -1,0 +1,102 @@
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <form
+    class="needs-validation update-form"
+    novalidate
+    action="/api/update/<%= id %>"
+    method="post"
+    enctype="multipart/form-data"
+    id="myform"
+  >
+    <div class="form-group mb-4">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        name="title"
+        id="title"
+        class="form-control"
+        placeholder="Enter title of the image"
+        required
+        value="<%= results[0].title %>"
+      />
+    </div>
+    <div class="form-group mb-4">
+      <label for="tag">Tag</label>
+      <input
+        type="text"
+        name="tag"
+        id="tag"
+        class="form-control"
+        placeholder="Enter tag of the image"
+        value="<%= results[0].tag %>"
+      />
+    </div>
+    <div class="form-group mb-4">
+      <label for="description">Description</label>
+      <textarea
+        name="description"
+        id="description"
+        class="form-control"
+        rows="3"
+      >
+<%= results[0].description %></textarea
+      >
+    </div>
+    <div class="form-group mb-4">
+      <label for="file">Image file</label>
+      <input
+        type="file"
+        name="file"
+        class="form-control-file"
+        id="file"
+        accept="image/jpg, image/jpeg, image/png"
+        value="/images/<%- results[0].image_name %>"
+        required
+      />
+    </div>
+    <div class="form-check mb-4">
+      <input name="active" id="active" class="form-check-input"
+      type="checkbox" value="1" <% if (results[0].active == 1) { %> checked
+      <% } %> />
+      <label class="form-check-label" for="active"> Active </label>
+    </div>
+    <button type="submit">Submit</button>
+    <progress class="progress" max="100" value="0"></progress>
+  </form>
+</div>
+
+<script>
+  // submit form
+  const url = document.querySelector(".update-form").action;
+
+  document
+    .getElementById("myform")
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
+      var form = document.getElementById("myform");
+      var formData = new FormData(form);
+      var xhr = new XMLHttpRequest();
+      xhr.open("PUT", url);
+      xhr.send(formData);
+      // get progress bar and show it while uploading
+      var progress = document.querySelector(".progress");
+      progress.style.display = "block";
+      // make a progress bar for the upload
+      xhr.onprogress = function (e) {
+        if (e.lengthComputable) {
+          progress.value = (e.loaded / e.total) * 100;
+        }
+      };
+      // hide progress bar when upload is complete
+      xhr.onload = function () {
+        if (xhr.status == 200) {
+          window.location.href = "/admin/dashboard";
+        }
+      };
+
+      xhr.onerror = function () {
+        progress.style.display = "none";
+        alert("An error occurred while submitting the form.");
+      };
+    });
+</script>

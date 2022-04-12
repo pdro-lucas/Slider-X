@@ -1,17 +1,18 @@
-<table class="table table-striped table-bordered table-hover">
-  <thead class="thead-dark" style="border-bottom: 10px solid hsl(240, 12%, 97%); background-color: white; border-radius: 8px;">
-    <tr>
-      <%- include('TableHead', {tableHead: [
-        { text: '#' },
-        { text: 'Title'},
-        { text: 'Tag'},
-        { text: 'Active'},
-        { text: 'Upload Date'},
-        { text: 'Actions'}
-      ]}) %>
-    </tr>
-  </thead>
-  <tbody>
-    <%- include('TableBody', {results}) %>
-  </tbody>
-</table>
+<div class="responsive-table">
+  <table class="c_table">
+    <thead>
+      <tr>
+        <%- include('TableHead', {tableHead: [
+          { text: '' },
+          { text: 'Title'},
+          {text: 'Tag'},
+          { text: 'Status'},
+          { text: 'Actions'}
+        ]}) %>
+      </tr>
+    </thead>
+    <tbody>
+      <%- include('TableBody', {results}) %>
+    </tbody>
+  </table>
+</div>

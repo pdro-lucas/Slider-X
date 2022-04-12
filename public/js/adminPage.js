@@ -1,5 +1,7 @@
 // Execute on page load
 document.addEventListener("DOMContentLoaded", function () {
+  document.querySelector(".loader-container").style.display = "none";
+
   const showNavbar = (toggleId, navId, bodyId, headerId) => {
     const toggle = document.getElementById(toggleId);
     const nav = document.getElementById(navId);

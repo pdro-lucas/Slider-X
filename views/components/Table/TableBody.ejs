@@ -3,31 +3,25 @@
     <th scope="row"><%= result.id %></th>
     <td><%= result.title %></td>
     <td><%= result.tag %></td>
-    <td><%= result.active %></td>
-    <td><%= result.date %></td>
-    <td colspan="2">
-      <a
-        href="/api/image/<%= result.id %>"
-        class="btn btn-success"
-        role="button"
-      >
-        View
+    <% if (result.active == 1) { %>
+      <td>
+        <span class="badge badge-success">Active</span>
+      </td>
+    <% } else { %>
+      <td>
+        <span class="badge badge-danger">Inactive</span>
+      </td>
+    <% } %>
+    <td colspan="2" class="table_action">
+      <a href="/api/image/<%= result.id %>" class="btn btn-view" role="button">
+        <i class='bx bx-expand' ></i>
       </a>
-      <a
-        href="/api/image/<%= result.id %>/edit"
-        class="btn btn-primary"
-        role="button"
-      >
-        Edit
+      <a href="/api/image/<%= result.id %>/edit" class="btn btn-edit" role="button">
+        <i class='bx bx-pencil'></i>
       </a>
-      <form
-        action="/api/delete/<%= result.id %>"
-        name="delete-button"
-        style="display: inline-block"
-        onsubmit="handleDelete(event)"
-      >
-        <button type="submit" class="btn btn-danger">Delete</button>
-      </form>
+      <button type="submit" class="btn btn-delete" data-id="<%= result.id %>">
+        <i class='bx bx-trash' ></i>
+      </button>
     </td>
   </tr>
 <% }); %>

@@ -1,5 +1,6 @@
 @import "base/typography";
 @import "base/colors";
+@import "base/variables";
 @import "base/reset";
 @import "base/utilities";
 
@@ -8,3 +9,9 @@
 
 @import "components/navbar";
 @import "components/sidebar";
+@import "components/table";
+@import "components/badge";
+@import "components/button";
+@import "components/loader";
+@import "components/form";
+@import "components/dashboard";

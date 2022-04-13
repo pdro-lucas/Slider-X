@@ -9,7 +9,7 @@
     "prepare": "husky install",
     "commit": "git-cz",
     "dev": "nodemon app.js",
-    "start": "node app.js",
+    "start": "pm2-runtime start ecosystem.config.js --env dev",
     "node-sass": "node-sass --output-style compressed --source-map true --source-map-contents true --watch lib/sass/ --output public/css/"
   },
   "dependencies": {

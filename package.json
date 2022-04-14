@@ -8,8 +8,9 @@
   "scripts": {
     "prepare": "husky install",
     "commit": "git-cz",
-    "dev": "nodemon app.js",
+    "dev": "pm2 start app.js --name sliderx --watch --ignore-watch=node_modules",
     "start": "pm2-runtime start ecosystem.config.js --env dev",
+    "monitor": "pm2 monit",
     "node-sass": "node-sass --output-style compressed --source-map true --source-map-contents true --watch lib/sass/ --output public/css/"
   },
   "dependencies": {

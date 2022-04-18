@@ -7,7 +7,7 @@
 <body>
   <div class="container">
     <div class="d-flex h-screen align-items-center justify-content-center">
-      <form action="/api/upload" method="post" enctype="multipart/form-data" id="myform">
+      <form action="/api/upload" method="post" enctype="multipart/form-data" id="uploadForm">
         <div class="form-group mb-5">
           <input type="text" name="title" id="title" class="form-control" placeholder="Enter title of the image" required />
         </div>
@@ -27,14 +27,14 @@
       </form>
     </div>
   </div>
-  
+  <!-- <script type="module" src="/js/index.js"></script> -->
   <script>
     // submit form
     document
-      .getElementById("myform")
+      .getElementById("uploadForm")
       .addEventListener("submit", function (e) {
         e.preventDefault();
-        var form = document.getElementById("myform");
+        var form = document.getElementById("uploadForm");
         var formData = new FormData(form);
         var xhr = new XMLHttpRequest();
         xhr.open("POST", "/api/upload");
@@ -44,7 +44,7 @@
         progress.max = 100;
         progress.value = 0;
         document.body.appendChild(progress);
-  
+
         xhr.onprogress = function (e) {
           if (e.lengthComputable) {
             progress.value = (e.loaded / e.total) * 100;

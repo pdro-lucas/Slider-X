@@ -46,7 +46,7 @@
       xhr.send(formData);
       // make a progress bar for the upload with bootstrap 5
       var progress = document.querySelector(".progress-bar");
- 
+
       xhr.onprogress = function (e) {
         if (e.lengthComputable) {
           progress.ariaValueNow = (e.loaded / e.total) * 100;

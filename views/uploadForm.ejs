@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include ('partials/head') %>
+  <%- title %>
+</head>
+<body>
+  <div class="container">
+    <div class="d-flex h-screen align-items-center justify-content-center">
+      <form action="/api/upload" method="post" enctype="multipart/form-data" id="myform">
+        <div class="form-group mb-5">
+          <input type="text" name="title" id="title" class="form-control" placeholder="Enter title of the image" required />
+        </div>
+        <div class="form-group mb-5">
+          <input type="text" name="tag" id="tag" class="form-control" placeholder="Enter tag of the image"/>
+        </div>
+        <div class="form-group mb-5">
+          <textarea name="description" id="description" class="form-control" rows="5" placeholder="Description"></textarea>
+        </div>
+        <div class="form-group mb-5">
+          <input type="file" name="file" class="form-control" id="file" required/>
+        </div>
+        <div class="form-group mb-5">
+          <input name="active" id="active" class="form-check-input" type="checkbox" value="1">Active</input>
+        </div>
+        <button class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+  
+  <script>
+    // submit form
+    document
+      .getElementById("myform")
+      .addEventListener("submit", function (e) {
+        e.preventDefault();
+        var form = document.getElementById("myform");
+        var formData = new FormData(form);
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/api/upload");
+        xhr.send(formData);
+        // make a progress bar for the upload
+        var progress = document.createElement("progress");
+        progress.max = 100;
+        progress.value = 0;
+        document.body.appendChild(progress);
+  
+        xhr.onprogress = function (e) {
+          if (e.lengthComputable) {
+            progress.value = (e.loaded / e.total) * 100;
+          }
+        };
+        xhr.onload = function () {
+          if (this.status == 200) {
+            window.location.href = "/admin/dashboard";
+          } else {
+            alert("Error: " + this.status);
+          }
+        };
+      });
+        // clear all fields after submit
+  </script>
+</body>
+</html>
+

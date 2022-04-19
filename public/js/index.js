@@ -1,4 +1,4 @@
-import { updateData, uploadData } from "./editForm.js";
+import { updateData, uploadData } from "./forms.js";
 
 (function () {
   // Upload form submit
@@ -18,6 +18,23 @@ import { updateData, uploadData } from "./editForm.js";
     editForm.addEventListener("submit", (e) => {
       e.preventDefault();
       updateData(editForm, editUrl);
+    });
+  }
+
+  // Delete image from database and file system
+  const button = document.querySelector(".delete-button");
+  if (button) {
+    button.addEventListener("click", (e) => {
+      const id = button.getAttribute("data-id");
+
+      fetch(`/api/delete/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          location.reload();
+        });
     });
   }
 })();

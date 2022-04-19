@@ -5,6 +5,8 @@ const express = require("express");
 const path = require("path");
 const routes = require("./lib/routes");
 const session = require("express-session");
+const MySQLStore = require("express-mysql-session")(session);
+const connect = require("./lib/database/connect");
 
 const app = express();
 
@@ -27,10 +29,13 @@ app.set("view engine", "ejs");
 app.set("views", "./views");
 
 // Configure session
+const sessionStore = new MySQLStore({ database: "sliderx" }, connect);
+
 app.use(
   session({
     secret: process.env.SECRET_KEY,
-    name: "uniqueSessionID",
+    key: "uniqueSessionID",
+    store: sessionStore,
     saveUninitialized: false,
     cookie: { maxAge: oneDay },
     resave: false,

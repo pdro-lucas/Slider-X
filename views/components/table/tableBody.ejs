@@ -1,0 +1,65 @@
+<tbody>
+  <% results.forEach(function(result) { %>
+    <tr>
+      <td
+        style="
+          max-width: 200px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        "
+      >
+        <img
+          alt="..."
+          src="<%= result.image_location %>"
+          width="256"
+          height="256"
+          class="avatar avatar-sm rounded-circle me-2"
+        />
+        <p class="text-heading font-semibold d-inline" href="#">
+          <%= result.title %>
+        </p>
+      </td>
+      <td>Feb 15, 2021</td>
+      <td>
+        <p class="text-heading font-semibold" href="#">
+          <%= result.tag %>
+        </p>
+      </td>
+      <td>
+        <span class="badge badge-lg badge-dot">
+          <% if (result.active == 1) { %>
+            <i class="bg-success"></i>
+            <span class="text-success">Active</span>
+          <% } else { %>
+            <i class="bg-danger"></i>
+            <span class="text-danger">Inactive</span>
+          <% } %>
+        </span>
+      </td>
+      <td class="text-end">
+        <a
+          href="/api/image/<%= result.id %>/edit"
+          class="btn d-inline-flex btn-sm btn-neutral border-base mx-1"
+        >
+          <span class="pe-2">
+            <i class="bi bi-pencil"></i>
+          </span>
+          <span>Edit</span>
+        </a>
+        <a href="/api/image/<%= result.id %>" class="btn btn-sm btn-neutral">
+          <span class="pe-2">
+            <i class="bi bi-eye"></i>
+          </span>
+          <span>View</span>
+        </a>
+        <button
+          type="button"
+          class="btn btn-sm btn-square btn-neutral text-danger-hover delete-button"
+          data-id="<%= result.id %>"
+        >
+          <i class="bi bi-trash"></i>
+        </button>
+      </td>
+    </tr>
+  <% }); %>
+</tbody>

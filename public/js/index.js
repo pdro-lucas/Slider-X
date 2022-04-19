@@ -22,19 +22,21 @@ import { updateData, uploadData } from "./forms.js";
   }
 
   // Delete image from database and file system
-  const button = document.querySelector(".delete-button");
+  const button = document.querySelectorAll(".delete-button");
   if (button) {
-    button.addEventListener("click", (e) => {
-      const id = button.getAttribute("data-id");
+    button.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        const id = e.target.dataset.id;
 
-      fetch(`/api/delete/${id}`, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          location.reload();
-        });
+        fetch(`/api/delete/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            location.reload();
+          });
+      });
     });
   }
 })();

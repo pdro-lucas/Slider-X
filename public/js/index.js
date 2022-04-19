@@ -27,7 +27,6 @@ import { updateData, uploadData } from "./forms.js";
     button.forEach((btn) => {
       btn.addEventListener("click", (e) => {
         const id = e.target.dataset.id;
-
         fetch(`/api/delete/${id}`, {
           method: "DELETE",
         })

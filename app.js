@@ -29,7 +29,7 @@ app.set("view engine", "ejs");
 app.set("views", "./views");
 
 // Configure session
-const sessionStore = new MySQLStore({ database: "sliderx" }, connect);
+const sessionStore = new MySQLStore({ database: "sliderx" }, connect.pool);
 
 app.use(
   session({

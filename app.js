@@ -1,12 +1,15 @@
 const cors = require("cors");
 const dotenv = require("dotenv").config();
 const express = require("express");
-//const morgan = require("morgan");
-const path = require("path");
-const routes = require("./lib/routes");
 const session = require("express-session");
 const MySQLStore = require("express-mysql-session")(session);
+const swaggerUi = require("swagger-ui-express");
+const path = require("path");
+
 const connect = require("./lib/database/connect");
+const routes = require("./lib/routes");
+const swaggerFile = require("./swagger_output.json");
+const isAuthenticated = require("./lib/middleware/isAuthenticated");
 
 const app = express();
 
@@ -49,6 +52,12 @@ app.use(cors());
 //app.use(morgan("dev"));
 
 // Routes
+app.use(
+  "/api-docs",
+  isAuthenticated,
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerFile)
+);
 app.use(routes);
 
 // Initialize server

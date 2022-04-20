@@ -1,12 +1,12 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "1.0.0",
-    "title": "REST API",
-    "description": ""
+    "version": "0.1.0",
+    "title": "SliderX API",
+    "description": "Documentation for SliderX API"
   },
-  "host": "localhost:3000",
-  "basePath": "/",
+  "host": "localhost:5000",
+  "basePath": "/api",
   "schemes": [
     "http"
   ],
@@ -46,7 +46,7 @@
     },
     "/api/images": {
       "get": {
-        "description": "",
+        "description": "Get all images from the database",
         "parameters": [],
         "responses": {
           "200": {

@@ -1,9 +1,10 @@
 const cors = require("cors");
 const dotenv = require("dotenv").config();
 const express = require("express");
-//const morgan = require("morgan");
 const path = require("path");
-const routes = require("./lib/routes");
+const morgan = require("morgan");
+const pageRoutes = require("./lib/routes/pagesRoutes");
+const apiRoutes = require("./lib/routes/apiRoutes");
 const session = require("express-session");
 const MySQLStore = require("express-mysql-session")(session);
 const connect = require("./lib/database/connect");
@@ -29,7 +30,7 @@ app.set("view engine", "ejs");
 app.set("views", "./views");
 
 // Configure session
-const sessionStore = new MySQLStore({ database: "sliderx" }, connect);
+const sessionStore = new MySQLStore({ database: "sliderx" }, connect.pool);
 
 app.use(
   session({
@@ -44,12 +45,13 @@ app.use(
 
 // App config
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ limit: "50mb", extended: true }));
 app.use(cors());
-//app.use(morgan("dev"));
+app.use(morgan("dev"));
 
 // Routes
-app.use(routes);
+app.use(apiRoutes);
+app.use(pageRoutes);
 
 // Initialize server
 app.listen(port, "0.0.0.0", () =>

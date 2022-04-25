@@ -31,7 +31,31 @@
     </div>
   </div>
 
-  <script type="module" src="/js/index.js"></script>
+  <script>
+    const url = document.getElementById("updateForm").action;
+    // submit update form
+    document
+      .getElementById("updateForm")
+      .addEventListener("submit", function (e) {
+        e.preventDefault();
+        var form = document.getElementById("updateForm");
+        var formData = new FormData(form);
+        var xhr = new XMLHttpRequest();
+        xhr.open("PUT", url);
+        xhr.send(formData);
+        
+        xhr.onload = function () {
+          if (this.status == 200) {
+            window.location.href = "/admin/dashboard";
+          } else {
+            // show all errors
+            var errors = JSON.parse(this.responseText);
+            console.log(errors)
+            alert("Error: " + this.status);
+          }
+        };
+      });
+  </script>
   </body>
 </html>
 

@@ -114,3 +114,9 @@ This is a completely free project that accepts contributions via pull requests o
 2. Submit your commits to the repository
 3. Open a pull request
 4. Enter a short description of your changes
+
+
+<br/>
+<br/>
+
+<p align="center">MIT License - Copyright (c) 2022 <a href="https://github.com/pdro-lucas">Pedro Lucas</a></p>

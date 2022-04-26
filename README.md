@@ -10,10 +10,17 @@
 - [Technologies](#technologies)
 - [Installation](#installation)
 - [Architecture](#architecture)
+- [Contribute](#how-to-contribute)
 
 ## General info
 
-This project is simple image slider generator.
+This project is simple API to send images and save them in a MYSQL database.
+SliderX has an integration with AWS S3 to save the images.
+
+> Amazon Simple Storage Service (Amazon S3) is an object storage service that offers industry-leading scalability, data availability, security, and performance.
+> Customers of all sizes and industries can use Amazon S3 to store and protect any amount of data for a range of use cases, such as data lakes, websites, mobile applications, backup and restore, archive, enterprise applications, IoT devices, and big data analytics.
+
+SliderX has an interface to interact with the data in the database but you can use the API on your own.
 
 ## Technologies
 
@@ -62,3 +69,14 @@ $ yarn
 │   ├── components/ # All components that are used in the project
 │   ├── partials/ # All partials that are used in the project
 ```
+
+## How to contribute?
+
+This is a completely free project that accepts contributions via pull requests on GitHub.
+
+### First steps
+
+1. Fork this repository
+2. Submit your commits to the repository
+3. Open a pull request
+4. Enter a short description of your changes

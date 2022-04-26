@@ -1,8 +1,3 @@
-<p align="center">
-  <img src="./public/logo.svg" width="500">
-</p>
-
-
 # SliderX &middot; ![Repo Size](https://img.shields.io/github/repo-size/pdro-lucas/SliderX) ![version](https://img.shields.io/github/package-json/v/pdro-lucas/sliderx) ![License](https://img.shields.io/github/license/pdro-lucas/sliderx)
 
 

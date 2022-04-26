@@ -1,18 +1,26 @@
-# SliderX &middot; ![Repo Size](https://img.shields.io/github/repo-size/pdro-lucas/SliderX) ![version](https://img.shields.io/github/package-json/v/pdro-lucas/sliderx) ![License](https://img.shields.io/github/license/pdro-lucas/sliderx)
-
 <p align="center">
   <img src="./public/logo.svg" width="500">
 </p>
 
-## Table of contents
+
+# SliderX &middot; ![Repo Size](https://img.shields.io/github/repo-size/pdro-lucas/SliderX) ![version](https://img.shields.io/github/package-json/v/pdro-lucas/sliderx) ![License](https://img.shields.io/github/license/pdro-lucas/sliderx)
+
+
+### Table of contents
 
 - [General info](#general-info)
-- [Technologies](#technologies)
-- [Installation](#installation)
+- [Developing](#developing)
+  - [Created with](#project-is-created-with)
+  - [Setting up](#setting-up)
+- [Configuration](#configuration)
 - [Architecture](#architecture)
+- [Style guide](#style-guide)
+- [Api Reference](#api-reference)
+- [Database](#database)
 - [Contribute](#how-to-contribute)
 
-## General info
+
+### General info
 
 This project is simple API to send images and save them in a MYSQL database.
 SliderX has an integration with AWS S3 to save the images.
@@ -22,9 +30,11 @@ SliderX has an integration with AWS S3 to save the images.
 
 SliderX has an interface to interact with the data in the database but you can use the API on your own.
 
-## Technologies
 
-Project is created with:
+### Developing
+
+
+#### Project is created with:
 
 - [ExpressJS](https://expressjs.com/): 4.17.3
 - [Express session](https://github.com/expressjs/session): 1.17.2
@@ -35,7 +45,13 @@ Project is created with:
 - [Multer-s3](https://github.com/anacronw/multer-s3): 2.10.0
 - [Amazon sdk](https://github.com/aws/aws-sdk-js): 2.1112.0
 
-## Installation
+
+#### Prerequisites
+- [NodeJS](https://nodejs.org/en/) version 16.x
+- [AWS account](https://aws.amazon.com/) ( Optional )
+
+
+#### Setting up
 
 To run this project, clone this github repo:
 
@@ -52,7 +68,13 @@ $ npm install
 $ yarn
 ```
 
-## Architecture
+
+### Configuration
+
+Here you should write what are all of the configurations a user can enter when using the project.
+
+
+### Architecture
 
 ```sh
 .
@@ -70,11 +92,23 @@ $ yarn
 │   ├── partials/ # All partials that are used in the project
 ```
 
-## How to contribute?
 
+### Style guide
+Explain your code style and show how to check it.
+
+
+### Api Reference
+If the api is external, link to api documentation. If not describe your api including authentication methods as well as explaining all the endpoints with their required parameters.
+
+
+### Database
+Explaining what database (and version) has been used. Provide download links. Documents your database design and schemas, relations etc...
+
+
+### How to contribute?
 This is a completely free project that accepts contributions via pull requests on GitHub.
 
-### First steps
+#### First steps
 
 1. Fork this repository
 2. Submit your commits to the repository

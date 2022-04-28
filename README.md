@@ -109,11 +109,31 @@ There are two ways to save the image, in Amazon s3 bucket or locally. To define 
 
 
 ### Api Reference
-In progress...
+> GET: To retrieve a representation of a resource.
+
+> POST: To create new resources and sub-resources.
+
+> PUT: To update existing resources.
+
+> PATCH: To update existing resources. It only updates the fields that were supplied, leaving the others alone.
+
+> DELETE: To delete existing resources.
+
+```sh
+# CRUD
+GET /api/images/ - 200 OK RETURN ALL IMAGES FROM DATABASE
+POST /api/upload/ - 200 OK UPLOAD NEW IMAGE TO DATABASE
+PUT /api/update/:id/ - 200 OK UPDATE IMAGE OR IMAGE INFO
+DELETE /api/delete/:id/ - 200 DELETE IMAGE FROM DATABASE
+
+# LOGIN
+GET /api/login/ - 200 OK ADMIN LOGIN
+POST /api/signout/ -200 OK ADMIN SIGNOUT
+```
 
 
 ### Database
-In progress...
+To connect in database fill all credentials in `.env` file.
 
 
 ### How to contribute?

@@ -34,15 +34,16 @@ SliderX has an interface to interact with the data in the database but you can u
 ### Developing
 
 #### Project is created with:
-
-- [ExpressJS](https://expressjs.com/): 4.17.3
-- [Express session](https://github.com/expressjs/session): 1.17.2
-- [Express-mysql-session](https://github.com/chill117/express-mysql-session): 2.1.7
-- [Node mysql](https://github.com/mysqljs/mysql): 2.18.1
-- [EJS](https://ejs.co/): 3.1.6
-- [Multer](https://github.com/expressjs/multer): 1.4.4
-- [Multer-s3](https://github.com/anacronw/multer-s3): 2.10.0
-- [Amazon sdk](https://github.com/aws/aws-sdk-js): 2.1112.0
+| Package                                                                    | NPM                                                                                                                              |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| [ExpressJS](https://github.com/expressjs/express)                          | ![Version](https://img.shields.io/npm/v/express) ![Downloads](https://img.shields.io/npm/dm/express)                             |
+| [Express session](https://github.com/expressjs/session)                    | ![Version](https://img.shields.io/npm/v/express-session) ![Downloads](https://img.shields.io/npm/dm/express-session)             |
+| [Express-mysql-session](https://github.com/chill117/express-mysql-session) | ![Version](https://img.shields.io/npm/v/express-mysql-session) ![Downloads](https://img.shields.io/npm/dm/express-mysql-session) |
+| [Node mysql](https://github.com/mysqljs/mysql)                             | ![Version](https://img.shields.io/npm/v/mysql) ![Downloads](https://img.shields.io/npm/dm/mysql)                                 |
+| [EJS](https://ejs.co/)                                                     | ![Version](https://img.shields.io/npm/v/ejs) ![Downloads](https://img.shields.io/npm/dm/ejs)                                     |
+| [Multer](https://github.com/expressjs/multer)                              | ![Version](https://img.shields.io/npm/v/multer) ![Downloads](https://img.shields.io/npm/dm/multer)                               |
+| [Multer-s3](https://github.com/anacronw/multer-s3)                         | ![Version](https://img.shields.io/npm/v/multer-s3) ![Downloads](https://img.shields.io/npm/dm/multer-s3)                         |
+| [Amazon sdk](https://github.com/aws/aws-sdk-js)                            | ![Version](https://img.shields.io/npm/v/aws-sdk) ![Downloads](https://img.shields.io/npm/dm/aws-sdk)                             |
 
 
 #### Prerequisites

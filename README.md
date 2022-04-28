@@ -109,11 +109,11 @@ There are two ways to save the image, in Amazon s3 bucket or locally. To define 
 
 
 ### Api Reference
-If the api is external, link to api documentation. If not describe your api including authentication methods as well as explaining all the endpoints with their required parameters.
+In progress...
 
 
 ### Database
-Explaining what database (and version) has been used. Provide download links. Documents your database design and schemas, relations etc...
+In progress...
 
 
 ### How to contribute?

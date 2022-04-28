@@ -11,8 +11,8 @@
 - [General info](#general-info)
 - [Developing](#developing)
   - [Created with](#project-is-created-with)
-  - [Setting up](#setting-up)
-- [Configuration](#configuration)
+- [Setting up](#setting-up)
+  - [Configuration](#configuration)
 - [Architecture](#architecture)
 - [Style guide](#style-guide)
 - [Api Reference](#api-reference)
@@ -51,7 +51,7 @@ SliderX has an interface to interact with the data in the database but you can u
 - [AWS account](https://aws.amazon.com/) ( Optional )
 
 
-#### Setting up
+### Setting up
 
 To run this project, clone this github repo:
 
@@ -69,7 +69,7 @@ $ yarn
 ```
 
 
-### Configuration
+#### Configuration
 
 Here you should write what are all of the configurations a user can enter when using the project.
 

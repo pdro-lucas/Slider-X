@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <% results.forEach(function(result, i) { %>
+      <div class="col-xl-3 col-lg-6 col-md-6 mb-4">
+        <div class="card shadow-sm to-up-animation overflow-hidden" style="height: 420px;">
+          <div class="overflow-hidden" style="height: 200px;">
+            <img class="card-img-top scale-animation" src="<%= result.image_location %>" alt="<%= result.title %>">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">
+              <a href="/api/image/<%= result.id %>" class="text-dark">
+                <%= result.title %>
+              </a>
+            </h5>
+            <p class="card-text text-muted text-ellipsis-vertical">
+              <%= result.description %>
+            </p>
+            <div class="py-2 mt-4">
+              <p class="small text-primary">
+                <i class="bi bi-bookmark-fill mr-2"></i>
+                <span class="font-weight-bold"><%= result.tag %></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% }); %>
+  </div>
+</div>

@@ -22,9 +22,6 @@
 
 .carousel-caption {
   opacity: 0;
-  /* transform: translateY(-50%);
-  bottom: initial;
-  top: 50%; */
   right: 0;
   bottom: 0;
   left: 0;
@@ -48,5 +45,71 @@
 @media (min-width: 992px) {
   #introCarousel {
     margin-top: -58.59px;
+  }
+}
+
+.card-img-top {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Utilities ================================================================ */
+
+.text-ellipsis-vertical {
+  display: -webkit-box;
+  word-break: break-world;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  max-height: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Animations ================================================================ */
+
+.scale-animation {
+  transition: transform 0.5s;
+}
+
+.scale-animation:hover {
+  transform: scale(1.1);
+}
+
+.to-up-animation {
+  transition: transform 0.5s;
+}
+
+.to-up-animation:hover {
+  transform: translateY(-5px);
+}
+
+.glow-offline {
+  -webkit-animation: glow-red 1s ease-in-out infinite alternate;
+  -moz-animation: glow-red 1s ease-in-out infinite alternate;
+  animation: glow-red 1s ease-in-out infinite alternate;
+}
+
+.glow-online {
+  -webkit-animation: glow-green 1s ease-in-out infinite alternate;
+  -moz-animation: glow-green 1s ease-in-out infinite alternate;
+  animation: glow-green 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow-red {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 40px #e6004d;
+  }
+  to {
+    text-shadow: 0 0 10px #ff4da6, 0 0 35px #fff;
+  }
+}
+
+@-webkit-keyframes glow-green {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 40px #00cc88;
+  }
+  to {
+    text-shadow: 0 0 10px #00cc88, 0 0 35px #fff;
   }
 }

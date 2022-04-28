@@ -28,12 +28,9 @@ SliderX has an integration with AWS S3 to save the images.
 > Amazon Simple Storage Service (Amazon S3) is an object storage service that offers industry-leading scalability, data availability, security, and performance.
 > Customers of all sizes and industries can use Amazon S3 to store and protect any amount of data for a range of use cases, such as data lakes, websites, mobile applications, backup and restore, archive, enterprise applications, IoT devices, and big data analytics.
 
-SliderX has an interface to interact with the data in the database but you can use the API on your own.
+SliderX has an interface to interact with the data in the database but you can use only API on your own.
 
-
-### Developing
-
-#### Project is created with:
+#### Project created with:
 | Package                                                                    | NPM                                                                                                                              |
 | -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | [ExpressJS](https://github.com/expressjs/express)                          | ![Version](https://img.shields.io/npm/v/express) ![Downloads](https://img.shields.io/npm/dm/express)                             |
@@ -76,7 +73,7 @@ This is the basic structure of the project
 ```
 
 1. The **app.js** file is the main file of project. This defines all ExpressJs settings.
-2. The **lib/controllers/** folder contains all api actions.
+2. The **lib/controllers/** folder contains all api routes actions.
 3. In **lib/database/** folder you can find the database connection and the create tables script.
 4. The **lib/middleware/** folder contains all middleware functions.
 5. The **lib/pages/** folder contains all functions to render pages.

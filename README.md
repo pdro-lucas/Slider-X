@@ -74,19 +74,19 @@ This is the basic structure of the project
 └── yarn.lock
 ```
 
-The **_app.js_** file is the main file of project. This defines all ExpressJs settings.
+The **app.js** file is the main file of project. This defines all ExpressJs settings.
 
-The **_lib/controllers/**_ folder contains all api actions.
+The **lib/controllers/** folder contains all api actions.
 
-In **_lib/database/**_ folder you can find the database connection and the create tables script.
+In **lib/database/** folder you can find the database connection and the create tables script.
 
-The **_lib/middleware/_** folder contains all middleware functions.
+The **lib/middleware/** folder contains all middleware functions.
 
-The **_lib/pages/_** folder contains all functions to render pages.
+The **lib/pages/** folder contains all functions to render pages.
 
-The **_lib/routes/_** folder contains all routes. The routes are separated in two ways: API routes and page routes. Page routes are the routes that are used to render pages. API routes are the routes that are used to handle api requests.
+The **lib/routes/** folder contains all routes. The routes are separated in two ways: API routes and page routes. Page routes are the routes that are used to render pages. API routes are the routes that are used to handle api requests.
 
-In the **_views/_** folder you can find all the views. The views use components to separate the html code. The components are located in **_views/components/_** folder.
+In the **views/** folder you can find all the views. The views use components to separate the html code. The components are located in **views/components/** folder.
 
 ### Setting up
 

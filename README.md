@@ -1,4 +1,9 @@
-# SliderX &middot; ![Repo Size](https://img.shields.io/github/repo-size/pdro-lucas/SliderX) ![version](https://img.shields.io/github/package-json/v/pdro-lucas/sliderx) ![License](https://img.shields.io/github/license/pdro-lucas/sliderx)
+<p align="center">
+  <img src="./Frame.svg" width="300" />
+</p>
+
+# &middot; SliderX &middot; 
+![Repo Size](https://img.shields.io/github/repo-size/pdro-lucas/SliderX) ![version](https://img.shields.io/github/package-json/v/pdro-lucas/sliderx) ![License](https://img.shields.io/github/license/pdro-lucas/sliderx)
 
 
 ### Table of contents

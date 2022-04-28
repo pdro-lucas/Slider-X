@@ -12,8 +12,8 @@
 - [Developing](#developing)
   - [Created with](#project-is-created-with)
 - [Setting up](#setting-up)
-  - [Configuration](#configuration)
-- [Architecture](#architecture)
+  - [Set credentials](#set-credentials)
+  - [Storage type](#storage-type)
 - [Style guide](#style-guide)
 - [Api Reference](#api-reference)
 - [Database](#database)
@@ -33,7 +33,6 @@ SliderX has an interface to interact with the data in the database but you can u
 
 ### Developing
 
-
 #### Project is created with:
 
 - [ExpressJS](https://expressjs.com/): 4.17.3
@@ -47,9 +46,47 @@ SliderX has an interface to interact with the data in the database but you can u
 
 
 #### Prerequisites
+
 - [NodeJS](https://nodejs.org/en/) version 16.x
 - [AWS account](https://aws.amazon.com/) ( Optional )
 
+
+### Style guide
+
+This is the basic structure of the project
+
+```sh
+.
+├── app.js
+├── lib/
+│   ├── controllers/
+│   ├── database/
+│   │   ├── connect.js
+│   │   └── createTables.sql
+│   ├── middleware/
+│   ├── pages/
+│   ├── routes/
+│   └── utils/
+├── public/
+├── views/
+│   ├── components/
+│   ├── partials/
+└── yarn.lock
+```
+
+The **_app.js_** file is the main file of project. This defines all ExpressJs settings.
+
+The **_lib/controllers/**_ folder contains all api actions.
+
+In **_lib/database/**_ folder you can find the database connection and the create tables script.
+
+The **_lib/middleware/_** folder contains all middleware functions.
+
+The **_lib/pages/_** folder contains all functions to render pages.
+
+The **_lib/routes/_** folder contains all routes. The routes are separated in two ways: API routes and page routes. Page routes are the routes that are used to render pages. API routes are the routes that are used to handle api requests.
+
+In the **_views/_** folder you can find all the views. The views use components to separate the html code. The components are located in **_views/components/_** folder.
 
 ### Setting up
 
@@ -69,32 +106,14 @@ $ yarn
 ```
 
 
-#### Configuration
+#### Set credentials
 
-Here you should write what are all of the configurations a user can enter when using the project.
+The most important file is the `.env`. It saves all credentials and important settings for SliderX.
+To set the required credentials, rename the `.env.example` file to `.env` and replace the values
 
+#### Storage type
 
-### Architecture
-
-```sh
-.
-├── app.js # The main file of the project (server)
-├── lib/ # All backend source code (server)
-│   ├── controllers/ # All controllers that handle requests
-│   ├── database/ # Database connection and setup
-│   ├── middleware/ # All middleware that handle requests
-│   ├── pages/ # All pages that are rendered (client side)
-│   ├── routes/ # Api and Pages routes
-│   └── utils/ # All utils that are used in the project
-├── public/ # All static files (client side)
-├── views/ # All views that are rendered (client side)
-│   ├── components/ # All components that are used in the project
-│   ├── partials/ # All partials that are used in the project
-```
-
-
-### Style guide
-Explain your code style and show how to check it.
+There are two ways to save the image, in Amazon s3 bucket or locally. To define which one you want use, inform storage type in `.env` file
 
 
 ### Api Reference

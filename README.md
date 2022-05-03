@@ -9,8 +9,7 @@
 ### Table of contents
 
 - [General info](#general-info)
-- [Developing](#developing)
-  - [Created with](#project-is-created-with)
+  - [Created with](#project-created-with)
 - [Setting up](#setting-up)
   - [Set credentials](#set-credentials)
   - [Storage type](#storage-type)
@@ -18,7 +17,19 @@
 - [Api Reference](#api-reference)
 - [Database](#database)
 - [Contribute](#how-to-contribute)
+- [To-do](#to-do)
 
+### To-do
+- [ ] Adicionar - Barra para indicar o tempo restante até que a imagem mude para a outra
+- [ ] Adicionar - Opção para o usuário escolher o tempo de transição das imagens
+- [ ] Adicionar - Uma opção para o usuário escolher se a descrição da imagem deve ou não aparecer
+- [ ] Adicionar - Modal para visualizar a imagem
+- [ ] Adicionar - SWR para recarregar os dados da página quando uma nova imagem for enviada
+- [ ] Adicionar - Sistema de prioridade. As imagens devem ter um sistema de prioridade para indicar qual é a posição da imagem no slide
+- [ ] Adicionar - Botões de navegação nas páginas que necessitam
+- [ ] Alterar - Os  campos de label devem ser adicionados novamente e incluir um asterisco para informar que o campo é obrigatório
+- [ ] Alterar - As imagens devem estar ativas por padrão
+- [ ] Alterar - Traduzir os elementos da página para o pt-BR
 
 ### General info
 
@@ -30,7 +41,7 @@ SliderX has an integration with AWS S3 to save the images.
 
 SliderX has an interface to interact with the data in the database but you can use only API on your own.
 
-#### Project created with:
+#### Project created with
 | Package                                                                    | NPM                                                                                                                              |
 | -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | [ExpressJS](https://github.com/expressjs/express)                          | ![Version](https://img.shields.io/npm/v/express) ![Downloads](https://img.shields.io/npm/dm/express)                             |

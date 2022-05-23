@@ -7,7 +7,7 @@
 <body>
   <div class="container">
     <div class="row h-screen justify-content-center align-items-center">
-      <div class="col-sm-12 col-md-6 rounded border p-5">
+      <div class="col-sm-12 col-md-8 col-lg-6 rounded border p-5">
         <h1 class="mb-4 text-muted text-center">Nova Imagem</h1>
         <p class="mb-5"><span class="text-danger">*</span> Campos obrigatórios</p>
         <form action="/api/upload" method="post" enctype="multipart/form-data" id="uploadForm">
@@ -25,7 +25,13 @@
           </div>
           <div class="form-group mb-5">
             <label for="priority">Prioridade<span class="text-danger">*</span></label>
-            <input type="number" title="Quanto maior o número, maior a prioridade" name="priority" id="priority" class="form-control" placeholder="1" required />
+            <input type="number" title="Quanto maior o número, maior a prioridade" name="priority" id="priority" class="form-control" placeholder="1" value="1" required />
+          </div>
+          <div class="form-group mb-5">
+            <label for="transitionTime">Tempo de transição<span class="text-danger">*</span></label>
+            <small class="text-muted">Em segundos!</small>
+            <input type="number" title="O valor deve ser em segundos" name="transitionTime" id="transitionTime"
+              class="form-control" placeholder="8" value="8" required />
           </div>
           <div class="form-group mb-5">
             <label for="file">Selecionar arquivo<span class="text-danger">*</span></label>
@@ -42,6 +48,7 @@
             <input name="showInfo" id="showInfo" class="form-check-input" type="checkbox" value="1" />
           </div>
           <button class="btn btn-primary mb-5 w-full">Enviar</button>
+          <a role="button" href="/admin/dashboard" class="btn btn-primary mb-5 w-full">Cancelar</a>
         </form>
       </div>
     </div>

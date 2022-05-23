@@ -6,25 +6,34 @@
 </head>
 <body>
   <div class="container">
-    <div class="d-flex h-screen align-items-center justify-content-center">
-      <form action="/api/upload" method="post" enctype="multipart/form-data" id="uploadForm">
-        <div class="form-group mb-5">
-          <input type="text" name="title" id="title" class="form-control" placeholder="Enter title of the image" required />
-        </div>
-        <div class="form-group mb-5">
-          <input type="text" name="tag" id="tag" class="form-control" placeholder="Enter tag of the image"/>
-        </div>
-        <div class="form-group mb-5">
-          <textarea name="description" id="description" class="form-control" rows="5" placeholder="Description"></textarea>
-        </div>
-        <div class="form-group mb-5">
-          <input type="file" name="file" class="form-control" id="file" required/>
-        </div>
-        <div class="form-group mb-5">
-          <input name="active" id="active" class="form-check-input" type="checkbox" value="1">Active</input>
-        </div>
-        <button class="btn btn-primary">Submit</button>
-      </form>
+    <div class="row h-screen justify-content-center align-items-center">
+      <div class="col-sm-12 col-md-6 rounded border p-5">
+        <h1 class="mb-4 text-muted text-center">Nova Imagem</h1>
+        <form action="/api/upload" method="post" enctype="multipart/form-data" id="uploadForm">
+          <div class="form-group mb-5">
+            <label for="title">Titulo</label>
+            <input type="text" name="title" id="title" class="form-control" placeholder="Digite o titulo da imagem" required />
+          </div>
+          <div class="form-group mb-5">
+            <label for="tag">Tag</span></label>
+            <input type="text" name="tag" id="tag" class="form-control" placeholder="Digite a tag da imagem"/>
+          </div>
+          <div class="form-group mb-5">
+            <label for="description">Descrição</label>
+            <textarea name="description" id="description" style="resize: none;" class="form-control" rows="5" placeholder="Descrição da imagem"></textarea>
+          </div>
+          <div class="form-group mb-5">
+            <label for="file">Selecionar arquivo<span class="text-danger">*</span></label>
+            <input type="file" name="file" class="form-control" id="file" required/>
+            <small class="text-muted">jpg / jpeg / png / gif</small>
+          </div>
+          <div class="form-group mb-5">
+            <label for="active">Ativar Imagem<span class="text-danger">*</span></label>
+            <input name="active" id="active" class="form-check-input" type="checkbox" value="1" checked />
+          </div>
+          <button class="btn btn-primary mb-5 w-full">Enviar</button>
+        </form>
+      </div>
     </div>
   </div>
   <!-- <script type="module" src="/js/index.js"></script> -->
@@ -62,4 +71,3 @@
   </script>
 </body>
 </html>
-

@@ -1,6 +1,11 @@
 <tbody>
   <% results.forEach(function(result) { %>
     <tr>
+      <td>
+        <p class="text-heading">
+          <%= result.priority %>
+        </p>
+      </td>
       <td
         style="
           max-width: 200px;
@@ -8,14 +13,7 @@
           text-overflow: ellipsis;
         "
       >
-        <img
-          alt="..."
-          src="<%= result.image_location %>"
-          width="256"
-          height="256"
-          class="avatar avatar-sm rounded-circle me-2"
-        />
-        <p class="text-heading font-semibold d-inline" href="#">
+        <p class="text-heading d-inline" href="#">
           <%= result.title %>
         </p>
       </td>
@@ -24,7 +22,7 @@
         <%= data %>
       </td>
       <td>
-        <p class="text-heading font-semibold" href="#">
+        <p class="text-heading" href="#">
           <%= result.tag %>
         </p>
       </td>

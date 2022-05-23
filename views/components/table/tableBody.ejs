@@ -19,7 +19,10 @@
           <%= result.title %>
         </p>
       </td>
-      <td>Feb 15, 2021</td>
+      <td>
+        <% const data = new Date(result.date).toLocaleString() %>
+        <%= data %>
+      </td>
       <td>
         <p class="text-heading font-semibold" href="#">
           <%= result.tag %>
@@ -29,28 +32,28 @@
         <span class="badge badge-lg badge-dot">
           <% if (result.active == 1) { %>
             <i class="bg-success"></i>
-            <span class="text-success">Active</span>
+            <span class="text-success">Ativo</span>
           <% } else { %>
             <i class="bg-danger"></i>
-            <span class="text-danger">Inactive</span>
+            <span class="text-danger">Desativada</span>
           <% } %>
         </span>
       </td>
       <td class="text-end">
         <a
           href="/admin/dashboard/<%= result.id %>/edit"
-          class="btn d-inline-flex btn-sm btn-neutral border-base mx-1 text-info"
+          class="btn d-inline-flex btn-sm btn-neutral border-base mx-1 text-primary"
         >
           <span class="pe-2">
             <i class="bi bi-pencil"></i>
           </span>
-          <span>Edit</span>
+          <span>Editar</span>
         </a>
         <a href="/admin/image/<%= result.id %>" class="btn btn-sm btn-neutral text-primary">
           <span class="pe-2">
             <i class="bi bi-eye"></i>
           </span>
-          <span>View</span>
+          <span>Visualizar</span>
         </a>
         <button
           type="button"

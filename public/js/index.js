@@ -1,25 +1,42 @@
-import { updateData, uploadData } from "./forms.js";
-
 (function () {
-  // Upload form submit
-  const uploadForm = document.getElementById("uploadForm");
-  if (uploadForm) {
-    const uploadUrl = uploadForm.action;
-    uploadForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      uploadData(uploadForm, uploadUrl);
+  // Open modal with a specific image by id
+  function CreateModalImage() {
+    const myModal = new bootstrap.Modal(
+      document.getElementById("exampleModal")
+    );
+    const tableTitle = document.querySelectorAll(".table-title");
+    const modalBody = document.querySelector(".modal-body");
+    const modalTitle = document.querySelector(".modal-title");
+
+    function setImageInModalBody(imageId) {
+      const res = fetch(`http://localhost:5000/api/image/${imageId}`)
+        .then((data) => data.json())
+        .then((dataImage) => {
+          modalBody.style.backgroundImage = `url(${dataImage[0].image_location})`;
+          modalTitle.innerHTML = `
+            Titulo: ${dataImage[0].title} /
+            Data de envio: ${new Date(dataImage[0].date).toLocaleString()} /
+            Imagem: ${dataImage[0].image_name}
+          `;
+        });
+    }
+
+    if (!tableTitle) {
+      return;
+    }
+
+    tableTitle.forEach((title) => {
+      title.addEventListener("click", function (event) {
+        const imageId = event.target.dataset.id;
+        modalBody.style.backgroundImage = "";
+        modalTitle.innerHTML = "";
+        myModal.show();
+        setImageInModalBody(imageId);
+      });
     });
   }
 
-  // Edit form submit
-  const editForm = document.getElementById("updateForm");
-  if (editForm) {
-    const editUrl = editForm.action;
-    editForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      updateData(editForm, editUrl);
-    });
-  }
+  CreateModalImage();
 
   // Delete image from database and file system
   const button = document.querySelectorAll(".delete-button");
@@ -32,14 +49,13 @@ import { updateData, uploadData } from "./forms.js";
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             location.reload();
           });
       });
     });
   }
 
-  // create a function to filter data in the table. Remove blank spaces and convert to lowercase
+  // Filter data in table
   function filterData(e) {
     const inputStr = e.target.value.toLowerCase();
     const table = document.getElementById("table");

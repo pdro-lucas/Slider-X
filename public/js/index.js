@@ -9,7 +9,9 @@
     const modalTitle = document.querySelector(".modal-title");
 
     function setImageInModalBody(imageId) {
-      const res = fetch(`http://localhost:5000/api/image/${imageId}`)
+      const res = fetch(
+        `https://slider-x-production.up.railway.app/api/image/${imageId}`
+      )
         .then((data) => data.json())
         .then((dataImage) => {
           modalBody.style.backgroundImage = `url(${dataImage[0].image_location})`;

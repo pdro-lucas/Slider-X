@@ -7,13 +7,16 @@
         </p>
       </td>
       <td
+        class="table-title"
         style="
           max-width: 200px;
           overflow: hidden;
           text-overflow: ellipsis;
+          cursor: pointer;
         "
+        data-id="<%= result.id  %>"
       >
-        <p class="text-heading d-inline" href="#">
+        <p class="text-heading d-inline" data-id="<%= result.id  %>">
           <% if (!result.title) { %>
             null
           <% } %>
@@ -52,12 +55,6 @@
             <i class="bi bi-pencil"></i>
           </span>
           <span>Editar</span>
-        </a>
-        <a href="/admin/image/<%= result.id %>" class="btn btn-sm btn-neutral text-primary">
-          <span class="pe-2">
-            <i class="bi bi-eye"></i>
-          </span>
-          <span>Visualizar</span>
         </a>
         <button
           type="button"

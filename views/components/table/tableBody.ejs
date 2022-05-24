@@ -14,6 +14,9 @@
         "
       >
         <p class="text-heading d-inline" href="#">
+          <% if (!result.title) { %>
+            null
+          <% } %>
           <%= result.title %>
         </p>
       </td>
@@ -23,6 +26,9 @@
       </td>
       <td>
         <p class="text-heading" href="#">
+          <% if (!result.tag) { %>
+            null
+          <% } %>
           <%= result.tag %>
         </p>
       </td>

@@ -1,3 +1,22 @@
+.bg-primary-color: {
+  background: #0d0e11;
+  color: white;
+}
+
+.bg-secondary-color: {
+  background: #111419;
+  color: white;
+}
+
+.brand: {
+  background: #facc15;
+  color: #0d0e11;
+}
+
+.text-secondary: {
+  color: #a1a1aa;
+}
+
 *,
 *::before,
 *::after {

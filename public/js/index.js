@@ -19,11 +19,11 @@
           modalTitle.innerHTML = `
             Titulo: ${dataImage[0].title !== "" ? dataImage[0].title : "null"}
           `;
-          // modalFooterContent.innerHTML = `
-          //   Data de envio: ${new Date(dataImage[0].date).toLocaleString()} - ${
-          //   dataImage[0].image_name
-          // }
-          // `;
+          modalFooterContent.innerHTML = `
+            Data de envio: ${new Date(dataImage[0].date).toLocaleString()} - ${
+            dataImage[0].image_name
+          }
+          `;
         });
     }
 
@@ -36,7 +36,7 @@
         const imageId = event.target.dataset.id;
         modalBody.style.backgroundImage = "";
         modalTitle.innerHTML = "";
-        // modalFooterContent.innerHTML = "";
+        modalFooterContent.innerHTML = "";
         myModal.show();
         setImageInModalBody(imageId);
       });

@@ -6,6 +6,7 @@
     );
     const tableTitle = document.querySelectorAll(".table-title");
     const modalBody = document.querySelector(".modal-body");
+    const modalFooterContent = document.querySelector(".modal-footer-content");
     const modalTitle = document.querySelector(".modal-title");
 
     function setImageInModalBody(imageId) {
@@ -16,9 +17,12 @@
         .then((dataImage) => {
           modalBody.style.backgroundImage = `url(${dataImage[0].image_location})`;
           modalTitle.innerHTML = `
-            Titulo: ${dataImage[0].title} /
-            Data de envio: ${new Date(dataImage[0].date).toLocaleString()} /
-            Imagem: ${dataImage[0].image_name}
+            Titulo: ${dataImage[0].title !== "" ? dataImage[0].title : "null"}
+          `;
+          modalFooterContent.innerHTML = `
+            Data de envio: ${new Date(dataImage[0].date).toLocaleString()} - ${
+            dataImage[0].image_name
+          }
           `;
         });
     }
@@ -32,6 +36,7 @@
         const imageId = event.target.dataset.id;
         modalBody.style.backgroundImage = "";
         modalTitle.innerHTML = "";
+        modalFooterContent.innerHTML = "";
         myModal.show();
         setImageInModalBody(imageId);
       });

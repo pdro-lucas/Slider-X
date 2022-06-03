@@ -68,8 +68,8 @@
     const table = document.getElementById("table");
     const rows = table.rows;
     for (let i = 1; i < rows.length; i++) {
-      const firstCol = rows[i].cells[0].textContent.toLowerCase();
-      const thirdCol = rows[i].cells[2].textContent.toLowerCase();
+      const firstCol = rows[i].cells[1].textContent.toLowerCase();
+      const thirdCol = rows[i].cells[3].textContent.toLowerCase();
       if (!firstCol.includes(inputStr) && !thirdCol.includes(inputStr)) {
         rows[i].style.display = "none";
       }

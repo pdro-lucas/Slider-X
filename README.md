@@ -21,15 +21,15 @@
 
 ### To-do
 - [ ] Adicionar - Barra para indicar o tempo restante até que a imagem mude para a outra
-- [ ] Adicionar - Opção para o usuário escolher o tempo de transição das imagens
-- [ ] Adicionar - Uma opção para o usuário escolher se a descrição da imagem deve ou não aparecer
-- [ ] Adicionar - Modal para visualizar a imagem
-- [ ] Adicionar - SWR para recarregar os dados da página quando uma nova imagem for enviada
-- [ ] Adicionar - Sistema de prioridade. As imagens devem ter um sistema de prioridade para indicar qual é a posição da imagem no slide
-- [ ] Adicionar - Botões de navegação nas páginas que necessitam
-- [ ] Alterar - Os  campos de label devem ser adicionados novamente e incluir um asterisco para informar que o campo é obrigatório
-- [ ] Alterar - As imagens devem estar ativas por padrão
-- [ ] Alterar - Traduzir os elementos da página para o pt-BR
+- [x] Adicionar - Opção para o usuário escolher o tempo de transição das imagens
+- [x] Adicionar - Uma opção para o usuário escolher se a descrição da imagem deve ou não aparecer
+- [x] Adicionar - Modal para visualizar a imagem
+- [x] Adicionar - SWR para recarregar os dados da página quando uma nova imagem for enviada
+- [x] Adicionar - Sistema de prioridade. As imagens devem ter um sistema de prioridade para indicar qual é a posição da imagem no slide
+- [x] Adicionar - Botões de navegação nas páginas que necessitam
+- [x] Alterar - Os  campos de label devem ser adicionados novamente e incluir um asterisco para informar que o campo é obrigatório
+- [x] Alterar - As imagens devem estar ativas por padrão
+- [x] Alterar - Traduzir os elementos da página para o pt-BR
 
 ### General info
 

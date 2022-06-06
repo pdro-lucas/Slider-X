@@ -45,5 +45,54 @@
     </div>
   </div>
   <!-- End of login form -->
+  <script>
+    // get login form data and send it to server via fetch API to check if user is valid
+    document.querySelector('form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const usernameInput = document.querySelector('input[name="username"]');
+      const passwordInput = document.querySelector('input[name="password"]');
+      const sendButton = document.querySelector('button');
+      // set send button to loading state while sending data to server. This will be removed when data is received from server
+      sendButton.innerHTML = `
+      <div class="spinner-border spinner-border-sm text-light" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    `
+      sendButton.disabled = true;
+
+      const formData = new FormData(e.target);
+      const userData = {};
+      formData.forEach((value, key) => {
+        userData[key] = value;
+      });
+
+      async function sendData() {
+        const response = await fetch('/api/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(userData)
+        });
+        const data = await response.json();
+        console.log(data)
+        if (data.status !== 200) {
+          document.querySelector('.alert').style.display = 'block';
+          usernameInput.focus();
+          usernameInput.classList.add('is-invalid');
+          passwordInput.classList.add('is-invalid');
+
+          sendButton.innerHTML = 'Enviar';
+          sendButton.disabled = false;
+        } else {
+          console.log('teste')
+          window.location.href = '/admin/dashboard';
+        }
+      }
+      sendData();
+    });
+
+  </script>
 </body>
+
 </html>

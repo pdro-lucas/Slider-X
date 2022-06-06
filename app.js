@@ -53,6 +53,19 @@ app.use(morgan("dev"));
 app.use(apiRoutes);
 app.use(pageRoutes);
 
+app.use((req, res, next) => {
+  next({
+    status: 404,
+    message: "Not found",
+  });
+});
+
+app.use((err, req, res, next) => {
+  if (err.status === 404) {
+    return res.status(404).render("components/404", { message: err.message });
+  }
+});
+
 // Initialize server
 app.listen(port, "0.0.0.0", () =>
   console.log(`Server is running at: http://localhost:${port}`)

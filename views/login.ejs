@@ -22,7 +22,7 @@
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
           <div class="card-header bg-light text-dark text-center">
-            <h3 class="card-title">Bem vindo</h3>
+            <h3 class="card-title">SliderX</h3>
             <p class="card-text">Faça login para acessar o painel</p>
           </div>
           <div class="card-body">
@@ -58,6 +58,9 @@
         <span class="visually-hidden">Loading...</span>
       </div>
     `
+      // set button style to loading state
+      sendButton.classList.remove('bg-danger');
+      sendButton.classList.add('bg-success');
       sendButton.disabled = true;
 
       const formData = new FormData(e.target);
@@ -82,7 +85,10 @@
           usernameInput.classList.add('is-invalid');
           passwordInput.classList.add('is-invalid');
 
+          // set button style to error state
           sendButton.innerHTML = 'Enviar';
+          sendButton.classList.remove('bg-success');
+          sendButton.classList.add('bg-danger');
           sendButton.disabled = false;
         } else {
           console.log('teste')

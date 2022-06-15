@@ -6,28 +6,79 @@
 </head>
 <body>
   <div class="container">
-    <div class="d-flex h-screen align-items-center justify-content-center">
-      <form action="/api/update/<%= id %>" method="post" enctype="multipart/form-data" id="updateForm">
-        <div class="form-group mb-5">
-          <input type="text" name="title" id="title" class="form-control" placeholder="Enter title of the image" value="<%= results[0].title %>" required />
+    <div class="row justify-content-center align-items-center h-screen">
+      <div class="col-sm-12 col-md-8 card overflow">
+        <div class="card-header position-relative">
+          <img src="<%= results[0].image_location  %>" alt="<%= results[0].title  %> " class="card-img" style="max-height: 200px; object-fit: cover;" />
+          <div class="card-img-overlay d-flex justify-content-center align-items-center">
+            <div class="text-center rounded-3" style="background-color: rgba(0%, 0%, 0%, 0.5); backdrop-filter: blur(5px);">
+              <p class="text-light py-2 px-3">Editando: <%= results[0].title %></p>
+            </div>
+          </div>
         </div>
-        <div class="form-group mb-5">
-          <input type="text" name="tag" id="tag" class="form-control" placeholder="Enter tag of the image" value="<%= results[0].tag %>" required/>
+        <div class="card-body">
+          <p class="card-text mb-5"><span class="text-danger">*</span> Campos obrigatórios</p>
+          <form action="/api/update/<%= id %>" method="post" enctype="multipart/form-data" id="updateForm">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group mb-5">
+                  <label for="title">Titulo</label>
+                  <input type="text" name="title" id="title" class="form-control" placeholder="Enter title of the image" value="<%= results[0].title %>" />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group mb-5">
+                  <label for="tag">Tag</label>
+                  <input type="text" name="tag" id="tag" class="form-control" placeholder="Enter tag of the image" value="<%= results[0].tag %>"/>
+                </div>
+              </div>
+            </div>
+            <div class="form-group mb-5">
+              <label for="description">Descrição</label>
+              <textarea name="description" style="resize: none;" id="description" class="form-control" rows="5" placeholder="Description"><%= results[0].description %></textarea>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 col-lg-6">
+                <div class="form-group mb-5">
+                  <label for="priority">Prioridade<span class="text-danger">*</span></label>
+                  <input type="number" title="Quanto maior o número, maior a prioridade" name="priority" id="priority"
+                    class="form-control" placeholder="1" value="<%= results[0].priority %>"/>
+                </div>
+              </div>
+              <div class="col-sm-12 col-lg-6">
+                <div class="form-group mb-5">
+                  <label for="transitionTime">Tempo de transição<span class="text-danger">*</span></label>
+                  <small class="text-muted">Em segundos!</small>
+                  <input type="number" title="O valor deve ser em segundos" name="transitionTime" id="transitionTime"
+                    class="form-control" placeholder="8" value="<%= results[0].transition_time %>"/>
+                </div>
+              </div>
+            </div>
+            <div class="form-group mb-5">
+              <label for="file">Selecionar arquivo</label>
+              <small class="text-muted">jpg / jpeg / png / gif</small>
+              <input type="file" name="file" class="form-control" id="file"/>
+            </div>
+            <hr class="bg-secondary border-2 border-top border-secondary">
+            <div class="form-group mb-5">
+              <label for="active">Ativar Imagem</label>
+              <input name="active" id="active" class="form-check-input" type="checkbox" <% if (results[0].active == 1) { %> checked<% } %>/>
+            </div>
+            <div class="form-group mb-5">
+              <label for="showInfo">Mostrar informações da imagem no carousel?<span class="text-danger">*</span></label>
+              <input name="showInfo" id="showInfo" class="form-check-input" type="checkbox" <% if (results[0].show_info == 1) { %> checked<% } %>/>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <button class="btn btn-primary mb-5 w-full">Enviar</button>
+              </div>
+              <div class="col-md-6">
+                <a role="button" href="/admin/dashboard" class="btn btn-primary mb-5 w-full">Cancelar</a>
+              </div>
+            </div>
+          </form>
         </div>
-        <div class="form-group mb-5">
-          <textarea name="description" id="description" class="form-control" rows="5" placeholder="Description" required><%= results[0].description %></textarea>
-        </div>
-        <div class="form-group mb-5">
-          <input type="file" name="file" class="form-control" id="file"/>
-        </div>
-        <div class="form-group mb-5">
-          <input name="active" id="active" class="form-check-input" type="checkbox" value="1" value="1" <% if (results[0].active == 1) { %> checked<% } %>>Active</input>
-        </div>
-        <button class="btn btn-primary mb-5">Submit</button>
-        <div class="progress">
-          <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-      </form>
+      </div>
     </div>
   </div>
 
@@ -38,19 +89,32 @@
       .getElementById("updateForm")
       .addEventListener("submit", function (e) {
         e.preventDefault();
-        var form = document.getElementById("updateForm");
-        var formData = new FormData(form);
-        var xhr = new XMLHttpRequest();
+        const form = document.getElementById("updateForm");
+        const formData = new FormData(form);
+        const sendButton = form.querySelector("button");
+
+        // set styles to button while sending data
+        sendButton.innerHTML = `
+          <div class="spinner-border spinner-border-sm text-light" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        `
+        sendButton.disabled = true;
+
+        const xhr = new XMLHttpRequest();
         xhr.open("PUT", url);
         xhr.send(formData);
-        
+
         xhr.onload = function () {
           if (this.status == 200) {
             window.location.href = "/admin/dashboard";
           } else {
+            // set styles to button after sending data
+            sendButton.innerHTML = "Enviar";
+            sendButton.disabled = false;
+
             // show all errors
-            var errors = JSON.parse(this.responseText);
-            console.log(errors)
+            const errors = JSON.parse(this.responseText);
             alert("Error: " + this.status);
           }
         };
@@ -58,4 +122,3 @@
   </script>
   </body>
 </html>
-

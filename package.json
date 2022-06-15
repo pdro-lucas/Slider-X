@@ -9,9 +9,7 @@
     "prepare": "husky install",
     "commit": "git-cz",
     "dev": "nodemon app.js",
-    "start": "pm2-runtime start ecosystem.config.js --env dev --restart-delay 5000",
-    "pm2": "pm2 start app.js --name sliderx --watch --ignore-watch=node_modules",
-    "monitor": "pm2 monit"
+    "start": "node app.js"
   },
   "dependencies": {
     "aws-sdk": "^2.1112.0",
@@ -24,8 +22,7 @@
     "express-session": "^1.17.2",
     "multer": "^1.4.4",
     "multer-s3": "^2.10.0",
-    "mysql": "^2.18.1",
-    "pm2": "^5.2.0"
+    "mysql": "^2.18.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.2.3",

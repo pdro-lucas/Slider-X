@@ -1,51 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <%- include ('partials/head') %>
-  <title>SliderX - Admin Login</title>
+    <title>SliderX - Admin Login</title>
 </head>
+
 <body class="h-screen">
-<!-- Login Form -->
-<div class="container ">
-  <div class="row align-items-center h-screen">
-    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-      <div class="card card-signin my-5">
-        <div class="card-body">
-          <h5 class="card-title text-center">Sign In</h5>
-          <form class="form-signin" action="/api/login" method="post">
-            <div class="form-label-group mb-5">
-              <label for="inputEmail">Username</label>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Username"
-                name="username"
-                required
-                autofocus
-              />
-            </div>
-            <div class="form-label-group mb-5">
-              <label for="inputPassword">Password</label>
-              <input
-                type="password"
-                class="form-control"
-                placeholder="Password"
-                name="password"
-                required
-              />
-            </div>
-            <button
-              class="btn btn-lg btn-primary btn-block text-uppercase"
-              type="submit"
-            >
-              Sign in
-            </button>
-          </form>
+  <!-- Login Form -->
+  <div class="container position-relative">
+    <div class="alert alert-danger d-flex align-items-center position-absolute w-full" role="alert"
+      style="display: none !important; top: 30px; left: 0;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+        class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+        <path
+          d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+      </svg>
+      <p>401 - Usuário ou senha incorretos!</p>
+    </div>
+    <div class="row align-items-center h-screen">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-header bg-light text-dark text-center">
+            <h3 class="card-title">SliderX</h3>
+            <p class="card-text">Faça login para acessar o painel</p>
+          </div>
+          <div class="card-body">
+            <form class="form-signin">
+              <div class="form-label-group mb-5">
+                <label for="inputEmail">Usuário</label>
+                <input type="text" class="form-control" placeholder="Usuário" name="username" required autofocus />
+              </div>
+              <div class="form-label-group mb-5">
+                <label for="inputPassword">Senha</label>
+                <input type="password" class="form-control" placeholder="*********" name="password" required />
+              </div>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase w-full" type="submit">
+                Enviar
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<!-- End of login form -->
+  <!-- End of login form -->
+  <script>
+    // get login form data and send it to server via fetch API to check if user is valid
+    document.querySelector('form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const usernameInput = document.querySelector('input[name="username"]');
+      const passwordInput = document.querySelector('input[name="password"]');
+      const sendButton = document.querySelector('button');
+      // set send button to loading state while sending data to server. This will be removed when data is received from server
+      sendButton.innerHTML = `
+      <div class="spinner-border spinner-border-sm text-light" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    `
+      // set button style to loading state
+      sendButton.classList.remove('bg-danger');
+      sendButton.classList.add('bg-success');
+      sendButton.disabled = true;
+
+      const formData = new FormData(e.target);
+      const userData = {};
+      formData.forEach((value, key) => {
+        userData[key] = value;
+      });
+
+      async function sendData() {
+        const response = await fetch('/api/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(userData)
+        });
+        const data = await response.json();
+        console.log(data)
+        if (data.status !== 200) {
+          document.querySelector('.alert').style.display = 'block';
+          usernameInput.focus();
+          usernameInput.classList.add('is-invalid');
+          passwordInput.classList.add('is-invalid');
+
+          // set button style to error state
+          sendButton.innerHTML = 'Enviar';
+          sendButton.classList.remove('bg-success');
+          sendButton.classList.add('bg-danger');
+          sendButton.disabled = false;
+        } else {
+          console.log('teste')
+          window.location.href = '/admin/dashboard';
+        }
+      }
+      sendData();
+    });
+
+  </script>
 </body>
+
 </html>

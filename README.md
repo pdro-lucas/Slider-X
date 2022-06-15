@@ -31,6 +31,8 @@
 - [x] Alterar - As imagens devem estar ativas por padrão
 - [x] Alterar - Traduzir os elementos da página para o pt-BR
 
+<img src="https://github.com/pdro-lucas/Slider-X/blob/feature/carousel/public/images/schema.png" />
+
 ### General info
 
 This project is simple API to send images and save them in a MYSQL database.
